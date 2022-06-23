@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  starting_coords: MyString
+  coords: MyString
+  home_team: false
+  image: MyString
+  is_king: false
+
+two:
+  starting_coords: MyString
+  coords: MyString
+  home_team: false
+  image: MyString
+  is_king: false

@@ -1,0 +1,282 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(242, 223, 213);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#appBody {
+  width: 100%;
+  align-items: center;
+}
+
+#board {
+  margin: auto;
+  width: max-content;
+}
+
+#gameGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 90px);
+  grid-gap: 7px;  
+  transform: perspective(500px) rotateX(10deg);
+}
+
+.tile {
+  text-align: center;
+  height: 90px;
+  width: 90px;
+  
+  background-color: rgb(226, 198, 190);
+  box-sizing: border-box;
+  border: 5px solid rgb(195, 169, 169);
+  border-radius: 4px;
+}
+
+.user {
+  background-color: rgb(230, 213, 206);
+  border: 5px solid rgb(138, 160, 167);
+}
+
+.enemy {
+  background-color: rgb(138, 130, 130);
+  border: 5px solid rgb(154, 106, 97);
+}
+
+.tile.moveable {
+  background-color: rgba(153, 181, 106, 0.914);
+}
+
+.user.king {
+  border: 7px solid rgb(108, 172, 192);
+}
+
+.enemy.king {
+  border: 7px solid rgb(189, 94, 77)
+}
+
+.imgContainer img {
+  margin-top: -30px;
+  margin-left: -10px;
+  background-position: 0px 18px;
+  width: 100px;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.448) 0%, rgba(0, 0, 0, 0) 40%);
+}
+
+li {
+  box-shadow: 0px 4px 4px rgba(56, 52, 51, 0.71);
+  margin: auto;
+  width: 230px;
+  padding: 5px;
+  background-color: rgb(226, 198, 190);
+  border-radius: 5px;
+  border: 2px solid rgb(195, 169, 169);
+  margin-top:7px;
+  cursor: pointer;
+}
+
+#gameList > li {
+  list-style: circle inside;
+}
+
+#homeList > li {
+  text-align: center;
+  list-style-type: none;
+}
+
+#homeButton {
+  background-color: rgb(226, 198, 190);
+  border-radius: 5px;
+  border: 2px solid rgb(195, 169, 169);
+  box-shadow: 5px 4px 4px rgba(56, 52, 51, 0.71);
+  margin: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+#homeButton:hover {
+  background-color: rgba(153, 181, 106, 0.914);
+}
+
+.listHeader {
+  text-align: center;
+  padding: 5px;
+  margin: auto;
+  width: 250px;
+  background-color: rgb(226, 198, 190);
+  border-radius: 8px;
+  border: 4px solid rgb(195, 169, 169);
+  box-shadow: 0px 6px 6px rgba(56, 52, 51, 0.71);
+  margin-bottom: -3px;
+  margin-top: 50px;
+}
+
+ul {
+  padding: 0;
+}
+
+li:hover {
+  background-color: rgba(153, 181, 106, 0.914);
+}
+
+#editor {
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  top: 31px;
+  right: 31px;
+  width: 200px;
+  height: 741px;
+
+  background-color: rgb(255, 246, 244);
+  border-radius: 10px;
+  border: 6px solid rgb(175, 174, 174);
+}
+
+#editor input {
+  margin-top: 10px;
+  width: 158px;
+  padding: 3px 0 3px 0;
+  border-radius: 5px;
+  border: 3px solid rgb(195, 169, 169);
+  box-shadow: -5px 4px 4px rgba(56, 52, 51, 0.71);
+  text-align: center;
+}
+
+#editor input:focus {
+  outline: none;
+}
+
+.editorKing {
+  background-color: gold;
+}
+
+.typeSelected {
+  background-image: radial-gradient(rgba(163, 84, 233, 0.999) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+#rosterGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 94px);
+  grid-template-rows: 94px;
+}
+
+.editButton.active {
+  background-color: rgb(232, 70, 70);
+  border: 2px solid rgb(131, 32, 32);
+}
+
+#typeGrid {
+  margin: auto;
+  width: max-content;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat( 15, 80px);
+  grid-gap: 7px; 
+}
+
+#typeGrid img {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+#editingGrid {
+  margin: auto;
+  width: max-content;
+  display: grid;
+  grid-template-columns: repeat(13, 55px);
+  grid-gap: 5px;  
+}
+
+#editingGrid > .tile {
+  text-align: center;
+  height: 55px;
+  width: 55px;
+  
+  background-color: rgb(226, 198, 190);
+  box-sizing: border-box;
+  border: 5px solid rgb(195, 169, 169);
+  border-radius: 4px;
+}
+
+#editingGrid > .tile > .imgContainer > img {
+  width: 70px;
+  height: 70px;
+  margin-left: -12px;
+  margin-top: -12px;
+  background-image: none;
+}
+
+#editingGrid .tile.selected{
+  border: 6px solid rgb(139, 133, 128)
+}
+
+#editingGrid .tile.moveable{
+  background-color: rgba(153, 181, 106, 0.914);
+}
+
+#resetButton {
+  position: absolute;
+  top: 0px;
+  left: 60px;
+  background-color: rgb(226, 198, 190);
+  border-radius: 5px;
+  border: 2px solid rgb(195, 169, 169);
+  box-shadow: 5px 4px 4px rgba(56, 52, 51, 0.71);
+  margin: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+#resetButton:hover {
+  background-color: rgba(153, 181, 106, 0.914);
+}
+
+.editButton {
+  background-color: rgb(226, 198, 190);
+  border-radius: 5px;
+  border: 2px solid rgb(195, 169, 169);
+  box-shadow: -5px 4px 4px rgba(56, 52, 51, 0.71);
+  margin: 10px 0 0 0px;
+  cursor: pointer;
+  width: 120px;
+}
+
+#moveButton {
+  position: absolute;
+  top: 0px;
+  left: 60px;
+  background-color: rgb(226, 198, 190);
+  border-radius: 5px;
+  border: 2px solid rgb(195, 169, 169);
+  box-shadow: 5px 4px 4px rgba(56, 52, 51, 0.71);
+  margin: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+#moveButton:hover {
+  background-color: rgba(153, 181, 106, 0.914);
+}
+
+.pieceSelected.user{
+  background-color: rgb(183, 196, 202);
+}
+
+.pieceSelected.enemy{
+  background-color: rgb(166, 121, 121);
+}
+
+.pieceSelected img {
+  margin-top: -43px;
+  margin-left: -10px;
+  background-position: 0px 20px;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.448) 0%, rgba(0, 0, 0, 0) 43%);
+  padding-bottom: 20px;
+ 
+}

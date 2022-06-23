@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  user: one
+  editing_mode: false
+
+two:
+  name: MyString
+  user: two
+  editing_mode: false

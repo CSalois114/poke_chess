@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kill_type: MyString
+  dependent_on_move: one
+  offset: MyString
+
+two:
+  kill_type: MyString
+  dependent_on_move: two
+  offset: MyString
