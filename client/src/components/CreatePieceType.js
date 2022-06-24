@@ -24,7 +24,7 @@ export default function CreatePieceType() {
 
   const handleClick = pieceType => {
     console.log(pieceType)
-    fetch(`http://localhost:3000/piece_types`, {
+    fetch(`/piece_types`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(pieceType)

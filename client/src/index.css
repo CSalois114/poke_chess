@@ -87,9 +87,13 @@ li {
   list-style: circle inside;
 }
 
-#homeList > li {
+.defaultList > li {
   text-align: center;
   list-style-type: none;
+}
+
+.authSwitch {
+  margin-top: 35px;
 }
 
 #homeButton {

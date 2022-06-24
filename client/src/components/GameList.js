@@ -5,7 +5,7 @@ export default function GameList() {
   const [allGames, setAllGames] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:3000/games`)
+    fetch(`/games`)
     .then(res => res.json())
     .then(setAllGames);
   },[])

@@ -17,7 +17,7 @@ export default function Editor({
   };
 
   const patchGame = patch => {
-    fetch(`http://localhost:3000/games/${gameObj.id}`, {
+    fetch(`/games/${gameObj.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(patch)

@@ -12,7 +12,7 @@ export default function Game() {
 
   const gameId = useParams().id
   useEffect(() => {
-    fetch(`http://localhost:3000/games/${gameId}`)
+    fetch(`/games/${gameId}`)
     .then(res => res.json())
     .then(setGameObj);
   },[])
@@ -61,13 +61,13 @@ export default function Game() {
   const mirrorCoords = coords => coords.split(',').map(n => 8-n).join()
 
   const deletePiece = piece => {
-    piece && fetch(`http://localhost:3000/pieces/${piece.id}`, {
+    piece && fetch(`/pieces/${piece.id}`, {
       method: 'DELETE'
     })
   }
   
   const postPiece = piece => {
-    fetch(`http://localhost:3000/pieces`, {
+    fetch(`/pieces`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(piece)
@@ -77,7 +77,7 @@ export default function Game() {
   }
   
   const patchPiece = (piece, patch) => {
-    fetch(`http://localhost:3000/pieces/${piece.id}`, {
+    fetch(`/pieces/${piece.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(patch)

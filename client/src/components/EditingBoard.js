@@ -9,7 +9,7 @@ export default function EditingBoard() {
     
   const pieceTypeId = useParams().id
   useEffect(() => {
-    fetch(`http://localhost:3000/piece_types/${pieceTypeId}`)
+    fetch(`/piece_types/${pieceTypeId}`)
     .then(res => res.json())
     .then(piece => {
       setPieceType(piece)
@@ -22,7 +22,7 @@ export default function EditingBoard() {
   }, [])
 
   const postNewMove = newMove => {
-    fetch(`http://localhost:3000/moves`, {
+    fetch(`/moves`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newMove)
