@@ -150,12 +150,15 @@ export default function Game() {
       const aiPiece = shuffledPieces.pop()
       const possibleMove= shuffleArr(getPossibleMoves(aiPiece))[0]
       if(possibleMove){
-        movePieceSelectedToCoords(possibleMove, aiPiece)
+        setTimeout(() => {
+          movePieceSelectedToCoords(possibleMove, aiPiece)
+        }, 1000);
         return null
       }
     }
     alert("Enemy has no moves.")
   }
+  
   !isUsersTurn && aiMove()
 
   const createPieceAtCoords = coords => {
