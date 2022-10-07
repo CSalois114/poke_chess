@@ -16,6 +16,11 @@ class GamesController < ApplicationController
   def update
     render json: Game.find(params[:id]).update(game_params), status: :ok
   end
+
+  def destroy
+    Game.destroy(params[:id])
+    head :ok
+  end
   
   private 
 

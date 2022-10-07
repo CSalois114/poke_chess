@@ -280,3 +280,20 @@ li:hover {
   padding-bottom: 20px;
  
 }
+
+.deleteButton {
+  float: right;
+  width: 25px;
+  height: 25px;
+  margin-top: -2.5px;
+  margin-right: -2.5px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid rgb(195, 169, 169);
+  background: rgb(210, 154, 140);
+  color: rgb(118, 39, 39);
+}
+
+.deleteButton:hover {
+  background: rgb(203, 85, 85);
+}
