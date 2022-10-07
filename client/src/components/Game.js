@@ -85,10 +85,12 @@ export default function Game() {
   }
   
   const changePieceSelected = piece => {
-    if(pieceSelected === piece) {
-      setPieceSelected(null)
-    } else {
-      setPieceSelected(piece)
+    if(isUsersTurn){
+      if(pieceSelected === piece) {
+        setPieceSelected(null)
+      } else {
+        setPieceSelected(piece)
+      }
     }
   }
   
