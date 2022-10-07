@@ -9,10 +9,11 @@ export default function Editor({
   isDeleteMode,
   updateGameObj
 }) {
-  const [name, setName] = useState("");
+  const [name, setName] = useState(gameObj.name === "Unnamed" ? "" : gameObj.name);
   const navigate = useNavigate();
 
   const updateName = (e) => {
+    patchGame({name: e.target.value})
     setName(e.target.value);
   };
 
