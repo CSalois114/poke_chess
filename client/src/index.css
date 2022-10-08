@@ -51,6 +51,10 @@ code {
   border: 5px solid rgb(154, 106, 97);
 }
 
+.tile.editing.enemy {
+  background-color: rgba(111, 163, 175, 0.75);
+}
+
 .tile.moveable {
   background-color: rgba(228, 196, 92, 0.914);
 }

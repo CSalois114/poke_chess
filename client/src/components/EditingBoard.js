@@ -127,6 +127,7 @@ export default function EditingBoard() {
               selectedOffset={selectedOffset}
               piece={displayPieceType} 
               tileClickFn={tileClickFn}
+              colorTag="editing"
             />
           )
         })}

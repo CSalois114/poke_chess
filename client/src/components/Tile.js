@@ -7,9 +7,10 @@ export default function Tile({
   offset,
   selectedOffset,
   pieceSelectedCoords,
+  colorTag,
 }) {
-  let colorClass = "";
-  piece && (colorClass = piece.home_team ? "user" : "enemy");
+  let colorClass = colorTag || "";
+  piece && (colorClass += piece.home_team ? " user" : " enemy");
   if(move) {
     colorClass += " moveable"
     move.can_kill && (colorClass += " canKill")
