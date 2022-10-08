@@ -8,7 +8,7 @@ export default function Board({ pieceClickFn, tileClickFn, getPieceAtCoords, sel
       <div id="gameGrid">
         {[...Array(boardSize ** 2).keys()].map(i => {
           const coords = `${i % boardSize + 1},${7 - Math.floor(i / boardSize)}`;
-          const moveable = selectedPossibleMoves?.includes(coords)
+          const move = selectedPossibleMoves[coords]
           const piece = getPieceAtCoords(coords)
           
           return (
@@ -16,7 +16,7 @@ export default function Board({ pieceClickFn, tileClickFn, getPieceAtCoords, sel
               key={coords} 
               piece={piece} 
               coords={coords} 
-              moveable={moveable}
+              move={move}
               pieceClickFn={pieceClickFn}
               tileClickFn={tileClickFn}
               pieceSelectedCoords={pieceSelectedCoords}

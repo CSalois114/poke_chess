@@ -47,17 +47,23 @@ export default function Game() {
   }
 
   const getPossibleMoves = (piece) => {
-    return piece && piece.moves.map(move => {
+    const result = {}
+    piece && piece.moves.map(move => {
       const offset = piece.home_team ? move.offset : invertOffset(move.offset)
       const coords = getCoordsFromOffset(piece.coords, offset)
       const isDiffTeam = getPieceAtCoords(coords)?.home_team !== piece.home_team
       const isDependenciesClear = (allDependenciesClear(piece, move));
       const isInBounds = coords.split(',').every(n => n > 0 && n < 8)
 
-      return isDiffTeam && isInBounds && isDependenciesClear ? coords : null;
-    }).filter(move => move !== null);
+      if(isDiffTeam && isInBounds && isDependenciesClear) {
+        result[coords] = move
+      }
+    })
+    console.log(result)
+    return result
   }
   const selectedPossibleMoves = getPossibleMoves(pieceSelected)
+  const possibleMoveCoords = piece => Object.keys(getPossibleMoves(piece));
   const mirrorCoords = coords => coords.split(',').map(n => 8-n).join()
 
   const deletePiece = piece => {
@@ -114,7 +120,7 @@ export default function Game() {
   }
 
   const movePieceSelectedToCoords = (newCoords, piece=pieceSelected) => {
-    if(getPossibleMoves(piece)?.includes(newCoords) && piece.home_team === isUsersTurn){
+    if(possibleMoveCoords(piece)?.includes(newCoords) && piece.home_team === isUsersTurn){
       const killedPiece = getPieceAtCoords(newCoords);
       piece.coords = newCoords;
       patchPiece(piece, {coords: newCoords});
@@ -150,7 +156,7 @@ export default function Game() {
     const shuffledPieces = shuffleArr(aiPieces)
     while (shuffledPieces.length > 0) {
       const aiPiece = shuffledPieces.pop()
-      const possibleMove= shuffleArr(getPossibleMoves(aiPiece))[0]
+      const possibleMove= shuffleArr(possibleMoveCoords(aiPiece))[0]
       if(possibleMove){
         setTimeout(() => {
           movePieceSelectedToCoords(possibleMove, aiPiece)
