@@ -1,7 +1,7 @@
 export default function Tile({
   piece,
   coords,
-  moveable,
+  move,
   pieceClickFn,
   tileClickFn,
   offset,
@@ -10,7 +10,11 @@ export default function Tile({
 }) {
   let colorClass = "";
   piece && (colorClass = piece.home_team ? "user" : "enemy");
-  moveable && (colorClass += " moveable");
+  if(move) {
+    colorClass += " moveable"
+    move.can_kill && (colorClass += " canKill")
+    move.must_kill && (colorClass += " mustKill")
+  }
   piece?.is_king && (colorClass += " king");
   offset && offset === selectedOffset && (colorClass += " selected");
   coords && pieceSelectedCoords === coords && (colorClass += " pieceSelected")

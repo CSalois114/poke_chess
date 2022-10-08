@@ -52,7 +52,15 @@ code {
 }
 
 .tile.moveable {
+  background-color: rgba(228, 196, 92, 0.914);
+}
+
+.tile.moveable.canKill {
   background-color: rgba(153, 181, 106, 0.914);
+}
+
+.tile.moveable.canKill.mustKill {
+  background-color: rgba(181, 106, 106, 0.914);
 }
 
 .user.king {
@@ -200,7 +208,6 @@ li:hover {
   height: 55px;
   width: 55px;
   
-  background-color: rgb(226, 198, 190);
   box-sizing: border-box;
   border: 5px solid rgb(195, 169, 169);
   border-radius: 4px;
@@ -218,9 +225,9 @@ li:hover {
   border: 6px solid rgb(139, 133, 128)
 }
 
-#editingGrid .tile.moveable{
+/* #editingGrid .tile.moveable{
   background-color: rgba(153, 181, 106, 0.914);
-}
+} */
 
 #resetButton {
   position: absolute;

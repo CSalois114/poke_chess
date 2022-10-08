@@ -7,6 +7,15 @@ class MovesController < ApplicationController
     render json: Move.create(move_params), status: :ok
   end
 
+  def update
+    render json: Move.find(params[:id]).update(move_params), status: :ok
+  end
+
+  def destroy
+    Move.destroy(params[:id])
+    head :ok
+  end
+
   private 
 
   def move_params
