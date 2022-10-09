@@ -64,7 +64,6 @@ export default function Game() {
         result[coords] = move
       }
     })
-    console.log(result)
     return result
   }
   const selectedPossibleMoves = getPossibleMoves(pieceSelected)
