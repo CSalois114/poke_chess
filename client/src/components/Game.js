@@ -51,11 +51,16 @@ export default function Game() {
     piece && piece.moves.map(move => {
       const offset = piece.home_team ? move.offset : invertOffset(move.offset)
       const coords = getCoordsFromOffset(piece.coords, offset)
+      const isPieceAtCoords = getPieceAtCoords(coords)
       const isDiffTeam = getPieceAtCoords(coords)?.home_team !== piece.home_team
       const isDependenciesClear = (allDependenciesClear(piece, move));
       const isInBounds = coords.split(',').every(n => n > 0 && n < 8)
+      const isIncompatibleMoveType = (
+        (!isPieceAtCoords && move.must_kill) ||
+        (isPieceAtCoords && !move.can_kill)
+      )
 
-      if(isDiffTeam && isInBounds && isDependenciesClear) {
+      if(isDiffTeam && isInBounds && isDependenciesClear && !isIncompatibleMoveType) {
         result[coords] = move
       }
     })
