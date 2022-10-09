@@ -274,9 +274,11 @@ export default function Game() {
           toggleDeleteMode={toggleDeleteMode}
           isDeleteMode={isDeleteMode}
         /> 
-      ): null }
-      <button id="resetButton" className='button' onClick={() => resetGame()}> Reset Game</button>
-      <button id="editButton" className='button' onClick={() => switchToEditMode()}>Edit Board</button>
+      ): 
+        <>
+          <button id="editButton" className='button' onClick={() => switchToEditMode()}>Edit Board</button>
+          <button id="resetButton" className='button' onClick={() => resetGame()}> Reset Game</button>
+        </> }
     </div>
   );
 }
