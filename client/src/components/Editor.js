@@ -27,8 +27,11 @@ export default function Editor({
     .then(bool => bool && updateGameObj({...gameObj, ...patch}));
   }
 
+  useEffect(() => {
+    patchGame({editing_mode: true})
+  },[])
+
   const saveBoard = () => {
-    console.log("test")
     if(name){
       patchGame({editing_mode: false, name: name})
     } else {
