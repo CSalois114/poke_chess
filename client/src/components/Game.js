@@ -120,7 +120,12 @@ export default function Game() {
     })
     setGameObj({...gameObj})
     setIsUsersTurn(true);
+  }
 
+  const switchToEditMode = () => {
+    gameObj.editing_mode = true;
+    setGameObj({...gameObj})
+    resetGame()
   }
 
   const movePieceSelectedToCoords = (newCoords, piece=pieceSelected) => {
@@ -271,6 +276,7 @@ export default function Game() {
         /> 
       ): null }
       <button id="resetButton" className='button' onClick={() => resetGame()}> Reset Game</button>
+      <button id="editButton" className='button' onClick={() => switchToEditMode()}>Edit Board</button>
     </div>
   );
 }

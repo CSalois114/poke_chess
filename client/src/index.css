@@ -228,15 +228,9 @@ li:hover {
 #editingGrid .tile.selected{
   border: 6px solid rgb(139, 133, 128)
 }
-
-/* #editingGrid .tile.moveable{
-  background-color: rgba(153, 181, 106, 0.914);
-} */
-
-#resetButton {
+.button{
   position: absolute;
   top: 0px;
-  left: 60px;
   background-color: rgb(226, 198, 190);
   border-radius: 5px;
   border: 2px solid rgb(195, 169, 169);
@@ -245,7 +239,15 @@ li:hover {
   cursor: pointer;
 }
 
-#resetButton:hover {
+#resetButton {
+  left: 60px;
+}
+
+#editButton {
+  left: 159px
+}
+
+.button:hover {
   background-color: rgba(153, 181, 106, 0.914);
 }
 
