@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import Editor from './Editor';
 import Board from './Board';
+import Key from './Key';
 
 export default function Game() {
   const [gameObj, setGameObj] = useState({});
@@ -258,6 +259,7 @@ export default function Game() {
   const boardSize = 7;
   return (
     <div>
+      <Key isEditingMode={false} />
       <Board
         pieceClickFn={pieceClickFn} 
         tileClickFn={tileClickFn} 

@@ -39,6 +39,8 @@ code {
   box-sizing: border-box;
   border: 5px solid rgb(195, 169, 169);
   border-radius: 4px;
+
+  cursor: pointer;
 }
 
 .user {
@@ -207,7 +209,7 @@ li:hover {
   grid-gap: 5px;  
 }
 
-#editingGrid > .tile {
+.tile.editing {
   text-align: center;
   height: 55px;
   width: 55px;
@@ -225,7 +227,7 @@ li:hover {
   background-image: none;
 }
 
-#editingGrid .tile.selected{
+.tile.selected{
   border: 6px solid rgb(139, 133, 128)
 }
 .button{
@@ -309,4 +311,26 @@ li:hover {
 
 .deleteButton:hover {
   background: rgb(203, 85, 85);
+}
+
+.keyWrap {
+  display: flex;
+}
+
+#key {
+  position: absolute;
+  top: 64px;
+  left: 10px;
+}
+
+.keyDescription {
+  white-space: pre-wrap;
+  max-width: 150px;
+  margin-top: 0px;
+  margin-left: 3px;
+  color: rgb(89, 83, 83);
+}
+
+.keyWrap {
+  padding-top: 5px;
 }

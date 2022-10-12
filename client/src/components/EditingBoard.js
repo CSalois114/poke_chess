@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Tile from './Tile';
+import Key from './Key';
 
 export default function EditingBoard() {
   const [pieceType, setPieceType] = useState({})
@@ -132,6 +133,7 @@ export default function EditingBoard() {
           )
         })}
       </div>
+      <Key isEditingMode={true} />
     </div>
   )
 }
