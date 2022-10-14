@@ -160,21 +160,41 @@ export default function Game() {
     }
     return arr;
   }
+
+  const getKillMove = piece => {
+    const killCoords = possibleMoveCoords(piece).find(coords => getPieceAtCoords(coords) && coords)
+    if(killCoords) {
+      return getPossibleMoves(piece)[killCoords]
+    }
+  }
+
+  const makeMove = move => {
+    const piece = gameObj.pieces.find(p => p.moves.includes(move))
+    const offset = piece.home_team ? move.offset : invertOffset(move.offset)
+    const coords = getCoordsFromOffset(piece.coords, offset)
+    movePieceSelectedToCoords(coords, piece)
+  }
   
   const aiMove = () => {
     const aiPieces = gameObj.pieces.filter(piece => !piece.home_team && piece.coords)
     const shuffledPieces = shuffleArr(aiPieces)
-    while (shuffledPieces.length > 0) {
-      const aiPiece = shuffledPieces.pop()
-      const possibleMove= shuffleArr(possibleMoveCoords(aiPiece))[0]
+    let possibleMove, aiPiece;
+    shuffledPieces.find(piece => possibleMove = getKillMove(piece))
+
+    while (shuffledPieces.length > 0 || aiPiece) {
       if(possibleMove){
         setTimeout(() => {
-          movePieceSelectedToCoords(possibleMove, aiPiece)
+          makeMove(possibleMove)
         }, 1000);
         return null
       }
+      aiPiece = shuffledPieces.pop()
+      possibleMove = shuffleArr(Object.values(getPossibleMoves(aiPiece)))[0]
     }
+
     alert("Enemy has no moves.")
+
+    setIsUsersTurn(true)
   }
   
   !isUsersTurn && aiMove()
