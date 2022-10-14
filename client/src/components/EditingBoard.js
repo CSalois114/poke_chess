@@ -59,7 +59,7 @@ export default function EditingBoard() {
     }).then(res => {
       if(res.ok){
         recDelete(move)
-        setMoves(moves.filter(m => !idFilter.includes(m.id)))
+        setMoves(moves => moves.filter(m => !idFilter.includes(m.id)))
       }
     })
   }
@@ -90,6 +90,11 @@ export default function EditingBoard() {
           patchMove(move, {
             must_kill: true, 
             can_kill: true
+          })
+          moves.forEach(m => {
+            if(m.dependent_on === move.offset){
+              deleteMove(m)
+            }
           })
           setSelectedOffset(null)
 
